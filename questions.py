@@ -1,4 +1,5 @@
 import random
+import sys 
 
 # Preguntas para el juego
 questions = [
@@ -38,14 +39,27 @@ for _ in range(3):
     
     # El usuario tiene 2 intentos para responder correctamente
     for intento in range(2):
-        user_answer = int(input("Respuesta: ")) - 1
+        user_answer = input("Respuesta: ")
+
+# veo si la entrada es un numero
+        if not user_answer.isdigit():
+            print("Respuesta no valida hay q ingresar un nro")
+            sys.exit(1)
+        
+        user_answer = int(user_answer) - 1
+        
+        # Verificar si la respuesta está dentro del rango permitido
+        if user_answer < 0 or user_answer >= len(answers[question_index]):
+            print("Respuesta no válida")
+            sys.exit(1)
+
         
         # Se verifica si la respuesta es correcta
         if user_answer == correct_answers_index[question_index]:
             print("¡Correcto!")
             break
         else:
-    # Si el usuario no responde correctamente después de 2 intentos, se muestra la respuesta correcta
+    # Si el usuario no responde correctamente después de 2 intentos, se muestra la respuesta correcta. 'ESTA RARA ESTA PARTE, PERO NO LA TOCO PQ ASI ESTABA EL EJ ORIGINAL'
             print("Incorrecto. La respuesta correcta es:")
             print(answers[question_index][correct_answers_index[question_index]])
     
