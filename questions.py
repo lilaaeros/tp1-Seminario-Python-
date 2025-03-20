@@ -62,11 +62,11 @@ for question, answers_list, correct_index in questions_to_ask:
             puntos += 1
             print("¡Correcto!")
             break
-        else:
-    # Si el usuario no responde correctamente después de 2 intentos, se muestra la respuesta correcta. 'ESTA RARA ESTA PARTE, PERO NO LA TOCO PQ ASI ESTABA EL EJ ORIGINAL'
-            puntos -= 0.5
-            print("Incorrecto. La respuesta correcta es:")
-            print(answers_list[correct_index])
+    else:
+# Si el usuario no responde correctamente después de 2 intentos, se muestra la respuesta correcta. 'ESTA RARA ESTA PARTE, PERO NO LA TOCO PQ ASI ESTABA EL EJ ORIGINAL'
+        puntos -= 0.5
+        print("Incorrecto. La respuesta correcta es:")
+        print(answers_list[correct_index])
     
     # Se imprime un espacio en blanco al final de la pregunta
     print()
